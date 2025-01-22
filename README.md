@@ -1,1 +1,3 @@
-# ShopEasy
+# shopeasy
+
+A new Flutter project.
