@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shopeasy/view/login_screen.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String _username = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUsername();
+  }
+
+  _loadUsername() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _username = prefs.getString('username') ?? '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +58,17 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 10),
+              SizedBox(height: 10),
+              Text(
+                'Welcome, $_username', // Menampilkan username
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  color: Colors.black54,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20),
+              
               Text(
                 'Shoeasy adalah aplikasi e-commerce sederhana yang dirancang untuk memberikan pengalaman belanja sepatu yang mudah,' 
                 'cepat, dan nyaman. Aplikasi ini memungkinkan pengguna untuk menjelajahi berbagai koleksi sepatu, melihat detail produk, '

@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopeasy/view/login_screen.dart';
 import 'package:shopeasy/view/data_diri.dart';
 import 'package:shopeasy/view/home_page.dart';
 import 'package:shopeasy/view/menu_utama.dart';
