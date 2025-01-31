@@ -30,13 +30,15 @@ class DataDiriPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _buildProfileCard(
-                    name: 'Ariadiva Putri BM',
+                    name: 'Ariadiva Putri',
                     npm: '714220050',
+                    imagePath: 'https://i.pinimg.com/736x/87/94/d6/8794d6d4080dc86b7ec5d972ed60f986.jpg', // Gambar untuk Ariadiva
                   ),
                   SizedBox(width: 16),
                   _buildProfileCard(
                     name: 'Devi Wulandari',
                     npm: '714220054',
+                    imagePath: 'https://i.pinimg.com/736x/87/94/d6/8794d6d4080dc86b7ec5d972ed60f986.jpg', // Gambar untuk Devi
                   ),
                 ],
               ),
@@ -47,12 +49,13 @@ class DataDiriPage extends StatelessWidget {
     );
   }
 
-  Widget _buildProfileCard({required String name, required String npm}) {
+  Widget _buildProfileCard({required String name, required String npm, required String imagePath}) {
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
-        width: 150,
+        width: 200,
+        height: 200,
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -62,29 +65,29 @@ class DataDiriPage extends StatelessWidget {
             end: Alignment.bottomRight,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 40,
-              backgroundColor: Colors.grey[200],
-              child: ClipOval(
-                
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 55,
+                backgroundColor: Colors.grey[200],
+                backgroundImage: NetworkImage(imagePath), // Gambar dari assets
               ),
-            ),
-            SizedBox(height: 12),
-            Text(
-              name,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
-            ),
-            SizedBox(height: 4),
-            Text(
-              'NPM: $npm',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-            ),
-          ],
+              SizedBox(height: 12),
+              Text(
+                name,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.blue),
+              ),
+              SizedBox(height: 4),
+              Text(
+                'NPM: $npm',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+              ),
+            ],
+          ),
         ),
       ),
     );
