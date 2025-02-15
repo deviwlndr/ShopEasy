@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopeasy/view/login_screen.dart';
+import 'package:shopeasy/view/login_page.dart';
 import 'package:shopeasy/view/data_diri.dart';
 import 'package:shopeasy/view/home_page.dart';
 import 'package:shopeasy/view/menu_utama.dart';
@@ -21,7 +21,7 @@ class ShopEasyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainScreen(),
+      home: LoginPage(),
     );
   }
 }
@@ -47,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ShopEasy',
+          'ShoEasy',
           style: GoogleFonts.poppins( // Ubah font ke Poppins
               fontWeight: FontWeight.bold,
               fontSize: 22,
