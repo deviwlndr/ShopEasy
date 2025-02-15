@@ -29,16 +29,18 @@ class DataDiriPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // Profile Card untuk Ariadiva Putri (Gambar dari URL)
                   _buildProfileCard(
                     name: 'Ariadiva Putri',
                     npm: '714220050',
-                    imagePath: 'https://i.pinimg.com/736x/87/94/d6/8794d6d4080dc86b7ec5d972ed60f986.jpg', // Gambar untuk Ariadiva
+                    imageAsset: 'assets/images/dipa.jpeg',
                   ),
                   SizedBox(width: 16),
+                  // Profile Card untuk Devi Wulandari (Gambar dari Assets)
                   _buildProfileCard(
                     name: 'Devi Wulandari',
                     npm: '714220054',
-                    imagePath: 'https://i.pinimg.com/736x/87/94/d6/8794d6d4080dc86b7ec5d972ed60f986.jpg', // Gambar untuk Devi
+                    imageAsset: 'assets/images/mba_depi.jpeg',
                   ),
                 ],
               ),
@@ -49,7 +51,8 @@ class DataDiriPage extends StatelessWidget {
     );
   }
 
-  Widget _buildProfileCard({required String name, required String npm, required String imagePath}) {
+  // Fungsi untuk membangun kartu profil
+  Widget _buildProfileCard({required String name, required String npm, String? imageUrl, String? imageAsset}) {
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -72,7 +75,11 @@ class DataDiriPage extends StatelessWidget {
               CircleAvatar(
                 radius: 55,
                 backgroundColor: Colors.grey[200],
-                backgroundImage: NetworkImage(imagePath), // Gambar dari assets
+                backgroundImage: imageUrl != null
+                    ? NetworkImage(imageUrl) // Gambar dari URL
+                    : (imageAsset != null
+                        ? AssetImage(imageAsset) // Gambar dari assets
+                        : null),
               ),
               SizedBox(height: 12),
               Text(

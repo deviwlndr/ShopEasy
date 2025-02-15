@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shopeasy/main.dart';
 import 'package:shopeasy/view/login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -127,8 +128,14 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 10),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/menu_utama');
+                onPressed: () async {
+                  // Navigator.pushReplacementNamed(context, '/menu_utama');
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MainScreen(),
+                          ),
+                        );
                 },
                 child: Text('Mulai Belanja'),
                 style: ElevatedButton.styleFrom(
