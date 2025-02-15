@@ -4,13 +4,13 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^3.5.3
 
 dependencies:
   flutter:
     sdk: flutter
   curved_navigation_bar: ^1.0.3
-  dio: ^5.2.0
+  dio: ^5.8.0+1
   google_fonts: ^6.2.1
   shared_preferences: ^2.0.15
 
