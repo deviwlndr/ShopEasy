@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Shoepasy Register',
+      title: 'ShopEasy Register',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -58,12 +58,16 @@ class _RegisterScreenState extends State<RegisterPage> {
   }
 
   // Validasi untuk username
-  String? _validateUsername(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Username tidak boleh kosong';
-    }
-    return null;
+ String? _validateUsername(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Username tidak boleh kosong';
   }
+  if (value.length < 4) {
+    return 'Username harus terdiri dari minimal 4 karakter';
+  }
+  return null;
+}
+
 
   // Validasi untuk password
   String? _validatePassword(String? value) {
@@ -88,7 +92,7 @@ class _RegisterScreenState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: Color(0xFFF8E1F4), // Warna background seperti pada gambar
       appBar: AppBar(
-        title: Text('Selamat Datang di Shoepasy'),
+        title: Text('Selamat Datang di ShopEasy'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(

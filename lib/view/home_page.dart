@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopeasy/main.dart';
-import 'package:shopeasy/view/login_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -50,7 +49,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 20),
               Text(
-                'Selamat Datang di Shoeasy',
+                'Selamat Datang di ShopEasy',
                 style: GoogleFonts.poppins(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -71,8 +70,8 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 20),
               
               Text(
-                'Shoeasy adalah aplikasi e-commerce sederhana yang dirancang untuk memberikan pengalaman belanja sepatu yang mudah,' 
-                'cepat, dan nyaman. Aplikasi ini memungkinkan pengguna untuk menjelajahi berbagai koleksi sepatu, melihat detail produk, '
+                'ShopEasy adalah aplikasi e-commerce sederhana yang dirancang untuk memberikan pengalaman melihat produk yang menyenangkan,' 
+                'cepat, dan nyaman. Aplikasi ini memungkinkan pengguna untuk menjelajahi berbagai produk, melihat detail produk, '
                 'serta melakukan manajemen produk dengan fitur CRUD (Create, Read, Update, Delete).',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
@@ -93,15 +92,11 @@ class _HomePageState extends State<HomePage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('- Mempermudah pengguna dalam mencari dan membeli sepatu secara online.',
-                      style: GoogleFonts.poppins(fontSize: 16, color: Colors.black54)),
                   Text('- Memberikan tampilan antarmuka yang menarik dan mudah digunakan.',
                       style: GoogleFonts.poppins(fontSize: 16, color: Colors.black54)),
-                  Text('- Mengimplementasikan fitur CRUD API untuk pengelolaan produk.',
+                  Text('- Mengimplementasikan fitur CRUD untuk pengelolaan produk.',
                       style: GoogleFonts.poppins(fontSize: 16, color: Colors.black54)),
                   Text('- Menyediakan fitur login dan validasi data pengguna.',
-                      style: GoogleFonts.poppins(fontSize: 16, color: Colors.black54)),
-                  Text('- Menampilkan halaman profil pengguna untuk personalisasi pengalaman.',
                       style: GoogleFonts.poppins(fontSize: 16, color: Colors.black54)),
                 ],
               ),
@@ -118,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 'Aplikasi ini dikembangkan oleh Ariadiva Putri BM dan Devi Wulandari sebagai bagian dari proyek tugas besar dalam pengembangan aplikasi mobile menggunakan Flutter.'
 
-                'Dengan Shoeasy, kami berharap dapat memberikan solusi belanja sepatu yang lebih praktis dan efisien bagi semua pengguna. 🚀',
+                'Dengan ShopEasy, kami berharap dapat memberikan solusi belanja sepatu yang lebih praktis dan efisien bagi semua pengguna. 🚀',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: Colors.black54,
@@ -127,32 +122,12 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 10),
               SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () async {
-                  // Navigator.pushReplacementNamed(context, '/menu_utama');
-                Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MainScreen(),
-                          ),
-                        );
-                },
-                child: Text('Mulai Belanja'),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                  textStyle: GoogleFonts.poppins(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
       ),
     );
   }
+
+
 }

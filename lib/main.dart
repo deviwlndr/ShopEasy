@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopeasy/service/auth_manager.dart';
 import 'package:shopeasy/view/data_diri.dart';
 import 'package:shopeasy/view/home_page.dart';
 import 'package:shopeasy/view/login_page.dart';
@@ -40,22 +41,37 @@ class _MainScreenState extends State<MainScreen> {
     DataDiriPage(),
     MenuUtamaPage(),
     ManagePage(),
+    LoginPage(),
   ];
+
+  
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ShoEasy',
-          style: GoogleFonts.poppins( // Ubah font ke Poppins
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-              color: const Color.fromARGB(255, 71, 145, 165)
-            ),
+          'ShopEasy',
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+            color: const Color.fromARGB(255, 71, 145, 165),
+          ),
         ),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 252, 211, 240),
+        actions: [
+         IconButton(
+            onPressed: () {
+              _showLogoutConfirmationDialog(context);
+            },
+            icon: const Icon(Icons.logout),
+          )
+        ],
       ),
       body: _pages[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
@@ -78,6 +94,40 @@ class _MainScreenState extends State<MainScreen> {
           });
         },
       ),
+    );
+  }
+
+    void _showLogoutConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: const Text('Konfirmasi Logout'),
+          content: const Text('Anda yakin ingin logout?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+              },
+              child: const Text('Tidak'),
+            ),
+            TextButton(
+              onPressed: () async {
+                await AuthManager.logout();
+                Navigator.pushAndRemoveUntil(
+// ignore: use_build_context_synchronously
+                  dialogContext,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: const Text('Ya'),
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -3,8 +3,6 @@ import 'package:shopeasy/main.dart';
 import 'package:shopeasy/model/login_model.dart';
 import 'package:shopeasy/service/api_service.dart';
 import 'package:shopeasy/service/auth_manager.dart';
-import 'package:shopeasy/view/login_screen.dart';
-import 'package:shopeasy/view/home_page.dart';
 import 'package:shopeasy/view/register_page.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -34,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(),
+          builder: (context) => MainScreen(),
         ),
         (route) => false,
       );
@@ -65,8 +63,8 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   String? _validatePassword(String? value) {
-    if (value != null && value.length < 3) {
-      return 'Masukkan minimal 3 karakter';
+    if (value != null && value.length < 6) {
+      return 'Masukkan minimal 6 karakter';
     }
     return null;
   }
@@ -87,11 +85,6 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(height: 20),
               Text(
                 'Selamat datang, $username! 👋',
-                style: TextStyle(fontSize: 16),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Selamat datang!',
                 style: TextStyle(fontSize: 16),
               ),
             ],
@@ -120,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Selamat Datang di Shopeasy',
+                  'Selamat Datang di ShopEasy',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -196,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                         Future.delayed(Duration(seconds: 3), () {
                           Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
+                            MaterialPageRoute(builder: (context) => MainScreen()),
                             (route) => false,
                           );
                         });
